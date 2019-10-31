@@ -1,5 +1,5 @@
 #our cli controller
-class MlbStadiums::CLI
+class CLI
 
     def call
         puts "Welcome to MLB Stadium Fact Finder."

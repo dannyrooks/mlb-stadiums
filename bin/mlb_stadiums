@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-require 'bundler/setup'
-require 'mlb-stadiums'
+require_relative '../lib/mlb_stadiums'
 
-MlbStadiums::CLI.new.call
+CLI.new.run
