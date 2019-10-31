@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
+require 'bundler/setup'
+require 'mlb-stadiums'
 
-puts "Hello World!"
+MlbStadiums::CLI.new.call
