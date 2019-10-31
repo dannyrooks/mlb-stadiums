@@ -6,7 +6,7 @@ class Scraper
 
         doc.css("th a").each do |name|
             stadium = Stadium.new
-            stadium.
+            
         end
 
         binding.pry
