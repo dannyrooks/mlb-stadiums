@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
-require_relative '../lib/mlb_stadiums'
+require_relative '../lib/mlb_stadiums.rb'
 
 CLI.new.run

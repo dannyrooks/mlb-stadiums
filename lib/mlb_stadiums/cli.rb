@@ -1,13 +1,14 @@
 #our cli controller
 class CLI
 
-    def call
+    def run
         puts "Welcome to MLB Stadium Fact Finder."
         puts ""
         puts "Select a stadium you would like to learn more about."
         puts ""
-        list_stadiums
+        Scraper.scrape_stadiums
         
+        binding.pry
     end
 
 
