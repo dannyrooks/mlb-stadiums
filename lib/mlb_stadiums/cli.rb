@@ -5,14 +5,19 @@ class MlbStadiums::CLI
         puts "Welcome to MLB Stadium Fact Finder."
         puts ""
         puts "Select a stadium you would like to learn more about."
+        puts ""
+        list_stadiums
+        
     end
 
 
     def list_stadiums
+        # puts out a list of scraped stadium names
 
     end
 
-    def select_stadium
+    def stadium_selector
+        
 
     end
 
