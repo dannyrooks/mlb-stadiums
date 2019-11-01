@@ -7,7 +7,7 @@ class CLI
         puts "Select the  ballpark you would like to learn more about. "
         puts ""
         Scraper.scrape_stadiums
-        
+        binding.pry
         # loop logic, ask user what to do and does it over and over until 'exit
         menu
         
