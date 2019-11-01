@@ -6,23 +6,20 @@ class CLI
         puts ""
         puts "Select the  ballpark you would like to learn more about. "
         puts ""
+        Scraper.scrape_stadiums
         
-        html = open("https://www.ballparksofbaseball.com/national-league")
-        doc = Nokogiri::HTML(html)
-        ballparks = []
-        doc.css("a.stadium-item").each do |ballpark|
-            title = ballpark.css("div.title").text.strip
-            ballparks << title
-        end
-
-        ballparks.each.with_index(1) do |title, index|
-            puts "#{index}. #{title}"
-        end
-
+        selector
+        print_ballparks
+        
     end
 
-    def stadium_selector
-        
+    def selector
+    end
+
+    def print_ballparks
+        Stadium.all.each.with_index(1) do |title, index|
+            puts "#{index}. #{title}"
+        end
     end
 
     def goodbye
