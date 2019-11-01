@@ -5,13 +5,15 @@ class Scraper
         doc = Nokogiri::HTML(html)
         doc.css("a.stadium-item").each do |field|
             stadium = Stadium.new
-            stadium.name = field.css("div.title").text.strip
+            stadium.name = field.css("div.title").text.split.map { |x| x.capitalize }.join(" ")
             stadium.url = field.attribute("href").value
         end
     end
 
     def self.scrape_stadium_details(stadium)
-
+        html = open("#{stadium.url}")
+        doc = Nokogiri::HTML(html)
+        binding.pry
     end
         
 end
