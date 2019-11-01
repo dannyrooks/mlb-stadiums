@@ -1,7 +1,7 @@
 class Scraper
 
     def self.scrape_stadiums
-        html = open("https://en.wikipedia.org/wiki/List_of_current_Major_League_Baseball_stadiums")
+        html = open("https://www.ballparksofbaseball.com/american-league/")
         doc = Nokogiri::HTML(html)
 
         doc.css("th a").each do |name|
@@ -13,7 +13,7 @@ class Scraper
     end
 
     def self.scrape_stadium_names
-        html = open("https://en.wikipedia.org/wiki/List_of_current_Major_League_Baseball_stadiums")
+        html = open("https://www.ballparksofbaseball.com/american-league/")
         doc = Nokogiri::HTML(html)
         
     end
