@@ -4,7 +4,9 @@ class CLI
     def run
         puts "Welcome to MLB Stadium Fact Finder."
         puts ""
-        puts "Select a stadium you would like to learn more about."
+        puts "Select the division in which the ballpark you are looking for is in. "
+        puts ""
+        puts "American League or National League?"
         puts ""
         Scraper.scrape_stadiums
         
@@ -12,8 +14,10 @@ class CLI
     end
 
 
-    def list_stadiums
-        # puts out a list of scraped stadium names
+    def division_selector(league)
+        doc.css("a div.title")[0].text #<--- "American League Ballparks"
+        doc.css("a div.title")[1].text
+
 
     end
 
