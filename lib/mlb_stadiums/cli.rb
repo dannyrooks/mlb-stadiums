@@ -14,10 +14,10 @@ class CLI
     end
 
     def menu
-        print_stadiums
+        print_stadiums_with_index
     end
 
-    def print_stadiums
+    def print_stadiums_with_index
         Stadium.all.each.with_index(1) do |title, index|
             puts "#{index}. #{title}"
         end
