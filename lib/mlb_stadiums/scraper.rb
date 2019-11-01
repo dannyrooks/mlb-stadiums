@@ -6,7 +6,7 @@ class Scraper
         doc.css("a.stadium-item").each do |ballpark|
             stadium = Stadium.new
             stadium.name = ballpark.css("div.title").text.strip	
-            binding.pry
+            
         end
     end
 

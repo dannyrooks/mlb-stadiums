@@ -4,7 +4,12 @@ class Stadium
     @@all = []
 
     def initialize
+        @name = name
         @@all << self
+    end
+
+    def self.url(name)
+        @url = name 
     end
 
     def self.all
