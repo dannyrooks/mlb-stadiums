@@ -5,7 +5,7 @@ class Scraper
         doc = Nokogiri::HTML(html)
         doc.css("a.stadium-item").each do |ballpark|
             stadium = Stadium.new
-            stadium.title = ballpark.css("div.title").text.strip	
+            stadium.name = ballpark.css("div.title").text.strip	
             binding.pry
         end
     end
