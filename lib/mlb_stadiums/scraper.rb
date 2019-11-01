@@ -6,9 +6,7 @@ class Scraper
         doc.css("a.stadium-item").each do |field|
             stadium = Stadium.new
             stadium.name = field.css("div.title").text.strip
-            
-            # stadium.url = doc.css("a.stadium-item").attribute("href").value
-            stadium.url = field.css("a").attribute("href")
+            stadium.url = field.attribute("href").value
         end
     end
 
