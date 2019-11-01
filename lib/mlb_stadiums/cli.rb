@@ -15,16 +15,14 @@ class CLI
             ballparks << title
         end
 
-            ballparks.each.with_index(1) do |title, index|
-                puts "#{index}. #{title}"
-            end
-        
-    end
+        ballparks.each.with_index(1) do |title, index|
+            puts "#{index}. #{title}"
+        end
 
+    end
 
     def stadium_selector
         
-
     end
 
     def goodbye
