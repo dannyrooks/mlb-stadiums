@@ -4,28 +4,23 @@ class CLI
     def run
         puts "Welcome to National League Baseball Stadium Fact Finder."
         puts ""
-        puts "Select the ballpark you would like to learn more about. "
+        puts "Select the  ballpark you would like to learn more about. "
         puts ""
         
-        html = open("https://www.ballparksofbaseball.com")
+        html = open("https://www.ballparksofbaseball.com/national-league")
         doc = Nokogiri::HTML(html)
-        divisions = []
-        doc.css("a.home-submenu-item").each do |div|
+        ballparks = []
+        doc.css("a.stadium-item").each do |ballpark|
+            title = ballpark.css("div.title").text.strip
+            ballparks << title
         end
-        
 
-        
+            ballparks.each.with_index(1) do |title, index|
+                puts "#{index}. #{title}"
+            end
         
     end
 
-
-    def self.division_selector
-        
-        doc.css("a div.title")[1].text 
-        doc.css("a.home-submenu-item")[1] 
-
-
-    end
 
     def stadium_selector
         
