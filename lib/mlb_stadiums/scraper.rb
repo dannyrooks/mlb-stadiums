@@ -14,6 +14,9 @@ class Scraper
         html = open("#{stadium.url}")
         doc = Nokogiri::HTML(html)
         binding.pry
+        stadium.facts = doc.css("div p")[6].text
+        stadium.facts = doc.css("div p")[7].text
+        
     end
         
 end

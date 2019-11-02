@@ -19,7 +19,7 @@ class CLI
             stadium = Stadium.all[input.to_i - 1] #add validations
             Scraper.scrape_stadium_details(stadium)
         end
-
+        
     end
 
     def menu
