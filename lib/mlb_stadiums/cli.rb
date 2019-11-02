@@ -6,10 +6,13 @@ class CLI
         puts ""
         puts " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ "
         puts ""
+        puts "Choose the number of the stadium which you would like more information on, or type 'exit' to exit."
+        puts ""
+        puts " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ "
         Scraper.scrape_stadiums
         menu
         puts " "
-        puts "Choose the number of the stadium which you would like more information on, or type 'exit' to exit."
+        puts "Enter number:"
         input = gets.strip.downcase
         while input != 'exit' do
             stadium = Stadium.all[input.to_i - 1] #add validations
