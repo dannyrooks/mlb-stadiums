@@ -18,8 +18,12 @@ class CLI
         while input != 'exit' do
             stadium = Stadium.all[input.to_i - 1] #add validations
             Scraper.scrape_stadium_details(stadium)
+            print_ballpark(stadium)
+            puts ""
+            puts "blah blah"
+            input = gets.strip.downcase
         end
-        
+        puts "#{goodbye}"
     end
 
     def menu
