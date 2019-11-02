@@ -21,17 +21,17 @@ class CLI
         input = gets.strip.downcase
         while input != 'exit' do
             stadium = Stadium.all[input.to_i - 1] #add validations
-            Scraper.scrape_stadium_details(stadium)
+            Scraper.scrape_stadium_details(stadium) if !stadium.facts #|| !stadium.morefacts 
             puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
             puts ""
             print_facts(stadium)
-            print_morefacts(stadium)
+            # print_morefacts(stadium)
             puts ""
             puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
             puts ""
             puts "Would you like to select another stadium?"
         input = gets.strip.downcase 
-        if input == "y"
+        if input == "y" 
             start
         elsif input == "n"
             goodbye
@@ -63,9 +63,9 @@ class CLI
         puts "#{stadium.facts}"
     end
 
-    def print_morefacts(stadium)
-        puts "#{stadium.morefacts}"
-    end
+    # def print_morefacts(stadium)
+    #     puts "#{stadium.morefacts}"
+    # end
 
     def goodbye
         puts ""
