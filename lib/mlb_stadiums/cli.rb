@@ -14,7 +14,8 @@ class CLI
             puts ""
             puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
             puts ""
-        Scraper.scrape_stadiums
+
+        Scraper.scrape_stadiums 
         print_stadiums_with_index
             puts " "
             puts "Please enter a number:"
@@ -30,30 +31,27 @@ class CLI
             puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
             puts ""
             puts "Would you like to select another stadium?"
+            puts "y or n?"
         input = gets.strip.downcase 
         if input == "y" 
-            start
+            print_stadiums_with_index
+            puts "Please enter a number:"
+            input = gets.strip.downcase
         elsif input == "n"
             goodbye
         else
             puts ""
-            puts "I do not understand." 
-            start
+            puts "I do not understand, try again." 
+            input = gets.strip.downcase
         end
     end
 
-        input = gets.strip.downcase
         
-        puts "#{goodbye}"
-    end
-
-    def list
-        #returns user to the main list of stadiums
     end
 
     def print_stadiums_with_index
         Stadium.all.each.with_index(1) do |stadium, index|
-            puts "#{index}. #{stadium.name}"
+            puts "#{index}. #{stadium.name}" 
         end
     end
 
