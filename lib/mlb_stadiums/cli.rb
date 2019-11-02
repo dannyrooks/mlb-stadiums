@@ -34,9 +34,7 @@ class CLI
         if input == "y"
             start
         elsif input == "n"
-            puts ""
-            puts "Have a nice day!"
-            exit
+            goodbye
         else
             puts ""
             puts "I do not understand." 
@@ -70,7 +68,10 @@ class CLI
     end
 
     def goodbye
-        "Have a nice day!"
+        puts ""
+        puts "Have a nice day!"
+        puts ""
+        exit
     end
 
 end
