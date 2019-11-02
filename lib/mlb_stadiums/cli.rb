@@ -18,7 +18,7 @@ class CLI
         while input != 'exit' do
             stadium = Stadium.all[input.to_i - 1] #add validations
             Scraper.scrape_stadium_details(stadium)
-            print_ballpark(stadium)
+            print_facts(stadium)
             puts ""
             puts "blah blah"
             input = gets.strip.downcase
@@ -38,6 +38,11 @@ class CLI
         Stadium.all.each.with_index(1) do |stadium, index|
             puts "#{index}. #{stadium.name}"
         end
+    end
+
+    def print_facts(stadium)
+        puts "#{stadium.facts}"
+        puts "#{stadium.morefacts}
     end
 
     def goodbye
