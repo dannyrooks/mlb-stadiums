@@ -4,9 +4,6 @@ class CLI
     def run
             puts ""
             puts "Welcome to National League Baseball Stadium Fact Finder!"
-            start
-    end
-    def start
             puts ""
             puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
             puts ""
@@ -21,27 +18,26 @@ class CLI
             puts "Please enter a number:"
         input = gets.strip.downcase
         while input != 'exit' do
-            stadium = Stadium.all[input.to_i - 1] #add validations
-            Scraper.scrape_stadium_details(stadium) if !stadium.facts #|| !stadium.morefacts 
+        stadium = Stadium.all[input.to_i - 1] #add validations
+        Scraper.scrape_stadium_details(stadium) if !stadium.facts 
             puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
             puts ""
             print_facts(stadium)
-            # print_morefacts(stadium)
             puts ""
             puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
             puts ""
             puts "Would you like to select another stadium?"
             puts "y or n?"
         input = gets.strip.downcase 
-        if input == "y" 
+            if input == "y" 
             print_stadiums_with_index
-            puts "Please enter a number:"
+                puts "Please enter a number:"
             input = gets.strip.downcase
-        elsif input == "n"
-            goodbye
-        else
-            puts ""
-            puts "I do not understand, try again." 
+            elsif input == "n"
+                goodbye
+            else
+                puts ""
+                puts "I do not understand, try again." 
             input = gets.strip.downcase
         end
     end
@@ -60,10 +56,6 @@ class CLI
         puts ""
         puts "#{stadium.facts}"
     end
-
-    # def print_morefacts(stadium)
-    #     puts "#{stadium.morefacts}"
-    # end
 
     def goodbye
         puts ""
