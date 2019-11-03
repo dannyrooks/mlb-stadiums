@@ -3,24 +3,32 @@ class CLI
 
     def run
         puts ""
-        puts "Welcome to National League Baseball Stadium Fact Finder!"
+        puts "Welcome to MLB Stadium Fact Finder!"
         puts ""
         puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         puts ""
-        puts "Choose the stadium which you would like to learn more about, or type 'exit' to quit."
+        puts "Select the league of the stadium you would like to view."
         puts ""
         puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         puts ""
-        Scraper.scrape_stadiums 
-        puts "NL Stadiums"
+        league
+        puts ""
+        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        puts ""
+        puts "Choose the stadium you would like to learn more about, or type 'exit' to quit."
+        puts ""
+        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        puts ""
+        Scraper.scrape_american_stadiums 
+        puts "AL Stadiums"
         puts ""
         print_stadiums_with_index
         puts " "
         puts "Please enter a number:"
         input = gets.strip.downcase
         while input != 'exit' do
-            stadium = Stadium.all[input.to_i - 1] #add validations
-            Scraper.scrape_stadium_details(stadium) if !stadium.facts || !stadium.memorable_moments
+            stadium = Stadium.all[input.to_i - 1] ###### add validations ######
+            Scraper.scrape_stadium_details(stadium) if !stadium.facts #|| !stadium.memorable_moments
             puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
             puts ""
             print_facts(stadium)
@@ -31,6 +39,7 @@ class CLI
             puts "y or n?"
             input = gets.strip.downcase 
         if input == "y" 
+            puts ""
             print_stadiums_with_index
             puts ""
             puts "Please enter a number:"
@@ -61,7 +70,14 @@ class CLI
         puts "#{stadium.memorable_moments}"
     end
 
+    def league
+        puts "1. American League"
+        puts "2. National League"
+    end
+
     def goodbye
+        puts ""
+        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         puts ""
         puts "Have a nice day!"
         puts ""
