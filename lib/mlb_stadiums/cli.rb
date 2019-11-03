@@ -20,7 +20,7 @@ class CLI
         input = gets.strip.downcase
         while input != 'exit' do
             stadium = Stadium.all[input.to_i - 1] #add validations
-            Scraper.scrape_stadium_details(stadium) if !stadium.facts 
+            Scraper.scrape_stadium_details(stadium) if !stadium.facts || !stadium.memorable_moments
             puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
             puts ""
             print_facts(stadium)
@@ -41,10 +41,8 @@ class CLI
             puts ""
             puts "I do not understand, try again." 
             input = gets.strip.downcase
+            end
         end
-    end
-
-        
     end
 
     def print_stadiums_with_index
@@ -54,9 +52,13 @@ class CLI
     end
 
     def print_facts(stadium)
-        puts "LOOK AT ALL THESE FACTS!!"
+        puts "Facts:"
         puts ""
         puts "#{stadium.facts}"
+        puts ""
+        puts "Memorable Moments:"
+        puts ""
+        puts "#{stadium.memorable_moments}"
     end
 
     def goodbye

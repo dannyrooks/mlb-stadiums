@@ -1,6 +1,6 @@
 class Stadium
 
-    attr_accessor :name, :url, :facts, :morefacts
+    attr_accessor :name, :url, :facts, :memorable_moments
     @@all = []
 
     def initialize

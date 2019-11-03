@@ -13,9 +13,11 @@ class Scraper
     def self.scrape_stadium_details(stadium)
         html = open("#{stadium.url}")
         doc = Nokogiri::HTML(html)
-        stadium.facts = doc.css("div.facts-col p")[0].text
-        stadium.morefacts = doc.css("div.facts-col p")[1].text
+        stadium.facts = doc.css("div.facts-col p")[0].text.strip
+        stadium.memorable_moments = doc.css("tr ul")[0].text.strip
         
     end
         
 end
+
+
