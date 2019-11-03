@@ -1,17 +1,8 @@
-#our cli controller, ALL INPUT AND OUTPUT MUST COME FROM THIS FILE!
 class CLI
 
     def run
         puts ""
-        puts "Welcome to MLB Stadium Fact Finder!"
-        puts ""
-        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        puts ""
-        puts "Select the league of the stadium you would like to view."
-        puts ""
-        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        puts ""
-        league
+        puts "Welcome to the National League Stadium Fact Finder!"
         puts ""
         puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         puts ""
@@ -19,16 +10,16 @@ class CLI
         puts ""
         puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         puts ""
-        Scraper.scrape_american_stadiums 
-        puts "AL Stadiums"
+        Scraper.scrape_national_stadiums 
+        puts "NL Stadiums"
         puts ""
         print_stadiums_with_index
         puts " "
         puts "Please enter a number:"
         input = gets.strip.downcase
         while input != 'exit' do
-            stadium = Stadium.all[input.to_i - 1] ###### add validations ######
-            Scraper.scrape_stadium_details(stadium) if !stadium.facts #|| !stadium.memorable_moments
+            stadium = Stadium.all[input.to_i - 1] 
+            Scraper.scrape_stadium_details(stadium) if !stadium.facts 
             puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
             puts ""
             print_facts(stadium)
@@ -68,11 +59,6 @@ class CLI
         puts "Memorable Moments:"
         puts ""
         puts "#{stadium.memorable_moments}"
-    end
-
-    def league
-        puts "1. American League"
-        puts "2. National League"
     end
 
     def goodbye

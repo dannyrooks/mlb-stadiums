@@ -1,15 +1,5 @@
 class Scraper
 
-    def self.scrape_american_stadiums
-        html = open("https://www.ballparksofbaseball.com/american-league")
-        doc = Nokogiri::HTML(html)
-        doc.css("a.stadium-item").each do |field|
-            stadium = Stadium.new
-            stadium.name = field.css("div.title").text.split.map { |x| x.capitalize }.join(" ")
-            stadium.url = field.attribute("href").value
-        end
-    end
-
     def self.scrape_national_stadiums
         html = open("https://www.ballparksofbaseball.com/national-league")
         doc = Nokogiri::HTML(html)
