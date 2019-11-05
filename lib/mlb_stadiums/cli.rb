@@ -17,6 +17,10 @@ class CLI
         puts " "
         puts "Please enter a number:"
         input = gets.strip.downcase
+        menu(input)
+    end
+
+    def menu(input)
         while input != 'exit' do
             stadium = Stadium.all[input.to_i - 1] 
             Scraper.scrape_stadium_details(stadium) if !stadium.facts 
